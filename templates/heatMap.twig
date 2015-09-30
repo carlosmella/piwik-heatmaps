@@ -1,0 +1,14 @@
+<h2> Mapa de calor </h2>
+<canvas id="canvas" width="1000" height="1200" style="background: url('plugins/MapaCalor/img/{{ page }}.png')"> </canvas>
+<script>
+var heat = simpleheat('canvas').max(300);
+{#	{% for fila in datos %}
+		{% if fila.tipo == "click" %}
+			heat.add([{{fila.coordX}},{{ fila.coordY}},10]);
+		{% elseif fila.tipo =="mouseMove"  %}
+			heat.add([{{fila.coordX}},{{ fila.coordY}},0.5]);
+		{% endif %}
+	{% endfor %} #}
+	heat.data({{datos}});
+	heat.draw(0.01);	
+</script>

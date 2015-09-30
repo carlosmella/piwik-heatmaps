@@ -1,0 +1,38 @@
+{% block content %}
+<h2> Añadir URL </h2>
+	<form>	
+		<label> URL:</label>
+		<input id="url" type="text" placeholder="URL del producto" class="required"/>
+		<input id="submitUrlMC" type="button" value="Añadir" class="submit" />
+		<div class="entityInlineHelp">
+		<p> Introduzca una URL de la que desee que se almacenen datos para elaborar un mapa de calor.</p> 
+		</div>
+		</form>
+
+<h2> Lista de URLs </h2>
+	<div id="listaUrlsMC">
+		{% if urls %}
+			<table class="dataTable entityTable">
+			<tr>
+			<td><strong> Url </strong></td> 
+			<td><strong> Eliminar</strong></td>
+			</tr>
+		{% endif %}
+			{% for url in urls %}
+				<tr>
+				<td><a id="urlMapaCalor" value="{{ url.url }}" >  {{ url.url }} </a> </td> 
+				<td> <a id="eliminarUrl" value="{{url.id}}"> <img src="plugins/Morpheus/images/ico_delete.png" border="0" >Eliminar</a> </br> </td>
+				</tr>
+	 
+		{% else %}
+			No se encontraron urls
+	
+			{% endfor%}
+			</table>	
+	</div>
+
+{% endblock %}
+
+<div id="mapaCalor">
+
+</div>

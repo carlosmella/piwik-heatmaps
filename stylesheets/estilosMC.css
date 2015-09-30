@@ -1,0 +1,18 @@
+#formMapaCalor{
+	display: flex;
+}
+#submitHeatMap{
+	float:left;
+	margin-left:2%;
+}
+#submitUrlMC {
+	position: relative;
+	right: 75%;
+}
+#mapaCalor {
+	margin-top:1%;
+}
+
+.empty{
+	border: 1px solid red !important;
+}
